@@ -19,31 +19,29 @@ initializeApp({
   projectId: "hamro-futsal-4e9fb",
 });
 
-app.post('/send-notification', (req, res) => {
-    const message = {
-        notification: {
-          title: "Notification by futsal app",
-          body: 'This is a Test Notification'
-        },
-        token:
-        "en5daGZsTXm-zXK_JFxYnO:APA91bE2FzIJSko9Yx1LXq4n4XOXxxuMqZGwHxSbWOIU0MUTfN5u8sD8c2uLyLI89qvKuslJdrGWtTFk6kpQrTEotRifkRn75ebfuW1IANVE8GsqSkUhJz6ds-VACXF1zOOkMq400HxI", // Assuming the token is sent in the request body
-    };
-    
-    getMessaging()
-    .send(message)
-    .then((response) => {
+app.post('/send-notification', async (req, res) => {
+    try {
+        const message = {
+            notification: {
+              title: "Notification by futsal app",
+              body: 'This is a Test Notification'
+            },
+            token: "en5daGZsTXm-zXK_JFxYnO:APA91bE2FzIJSko9Yx1LXq4n4XOXxxuMqZGwHxSbWOIU0MUTfN5u8sD8c2uLyLI89qvKuslJdrGWtTFk6kpQrTEotRifkRn75ebfuW1IANVE8GsqSkUhJz6ds-VACXF1zOOkMq400HxI",
+        };
+
+        const response = await getMessaging().send(message);
+
         res.status(200).json({
             message: "Successfully sent message",
-            token: 
-            "en5daGZsTXm-zXK_JFxYnO:APA91bE2FzIJSko9Yx1LXq4n4XOXxxuMqZGwHxSbWOIU0MUTfN5u8sD8c2uLyLI89qvKuslJdrGWtTFk6kpQrTEotRifkRn75ebfuW1IANVE8GsqSkUhJz6ds-VACXF1zOOkMq400HxI",
+            response: response,
         });
         console.log("Successfully sent message:", response);
-    })
-    .catch((error) => {
+    } catch (error) {
         res.status(400).json({ error: error.message });
         console.log("Error sending message:", error);
-    });
+    }
 });
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
