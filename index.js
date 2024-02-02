@@ -26,7 +26,7 @@ app.post('/send-notification', (req, res) => {
           body: 'This is a Test Notification'
         },
         token:
-        "en5daGZsTXm-zXK_JFxYnO:APA91bE2FzIJSko9Yx1LXq4n4XOXxxuMqZGwHxSbWOIU0MUTfN5u8sD8c2uLyLI89qvKuslJdrGWtTFk6kpQrTEotRifkRn75ebfuW1IANVE8GsqSkUhJz6ds-VACXF1zOOkMq400HxI",, // Assuming the token is sent in the request body
+        "en5daGZsTXm-zXK_JFxYnO:APA91bE2FzIJSko9Yx1LXq4n4XOXxxuMqZGwHxSbWOIU0MUTfN5u8sD8c2uLyLI89qvKuslJdrGWtTFk6kpQrTEotRifkRn75ebfuW1IANVE8GsqSkUhJz6ds-VACXF1zOOkMq400HxI", // Assuming the token is sent in the request body
     };
     
     getMessaging()
@@ -35,7 +35,7 @@ app.post('/send-notification', (req, res) => {
         res.status(200).json({
             message: "Successfully sent message",
             token: 
-            "en5daGZsTXm-zXK_JFxYnO:APA91bE2FzIJSko9Yx1LXq4n4XOXxxuMqZGwHxSbWOIU0MUTfN5u8sD8c2uLyLI89qvKuslJdrGWtTFk6kpQrTEotRifkRn75ebfuW1IANVE8GsqSkUhJz6ds-VACXF1zOOkMq400HxI",,
+            "en5daGZsTXm-zXK_JFxYnO:APA91bE2FzIJSko9Yx1LXq4n4XOXxxuMqZGwHxSbWOIU0MUTfN5u8sD8c2uLyLI89qvKuslJdrGWtTFk6kpQrTEotRifkRn75ebfuW1IANVE8GsqSkUhJz6ds-VACXF1zOOkMq400HxI",
         });
         console.log("Successfully sent message:", response);
     })
